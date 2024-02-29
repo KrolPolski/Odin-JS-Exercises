@@ -29,9 +29,18 @@ function addBookToLibrary(title, author, pages, read) {
 let bookTable = document.querySelector("#bookTable");
 let newBookBtn = document.querySelector("#newBookBtn");
 let newBookForm = document.querySelector("#newBookForm");
+let submitBookBtn = document.querySelector("#submitBook");
+let newTitle = document.querySelector("#newTitle");
+let newAuthor = document.querySelector("#newAuthor");
+let newPages = document.querySelector("#newPages");
 newBookBtn.addEventListener('click', () => {
 	newBookForm.style.display = 'block';
 });
+submitBookBtn.addEventListener('click', () => {
+	addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, true);
+	event.preventDefault();
+})
+
 
 addBookToLibrary("Lord of the Rings", "JRR Tolkien", 1216, true);
 addBookToLibrary("Mistborn", "Brandon Sanderson", 541, true);
