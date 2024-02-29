@@ -39,7 +39,11 @@ newBookBtn.addEventListener('click', () => {
 submitBookBtn.addEventListener('click', () => {
 	addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, true);
 	event.preventDefault();
-})
+	newTitle.value = "";
+	newAuthor.value = "";
+	newPages.value = "";
+	newBookForm.style.display = "none";
+});
 
 
 addBookToLibrary("Lord of the Rings", "JRR Tolkien", 1216, true);
