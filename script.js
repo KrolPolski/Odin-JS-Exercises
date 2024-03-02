@@ -16,11 +16,15 @@ function addBookToLibrary(title, author, pages, read) {
 	book = new Book(title, author, pages, read);
 	myLibrary.push(book);
 	let row = bookTable.insertRow(-1);
-	let c1 = row.insertCell(0);
-	let c2 = row.insertCell(1);
-	let c3 = row.insertCell(2);
-	let c4 = row.insertCell(3);
-
+	row.dataset.key = myLibrary.length - 1;
+	let c0 = row.insertCell(0);
+	let c1 = row.insertCell(1);
+	let c2 = row.insertCell(2);
+	let c3 = row.insertCell(3);
+	let c4 = row.insertCell(4);
+	const removeMe = document.createElement("button");
+	c0.appendChild(removeMe);
+	removeMe.innerText = "rm";
 	c1.innerText = myLibrary[myLibrary.length - 1].title;
 	c2.innerText = myLibrary[myLibrary.length - 1].author;
 	c3.innerText = myLibrary[myLibrary.length - 1].pages;
