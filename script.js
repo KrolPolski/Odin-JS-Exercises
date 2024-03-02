@@ -33,11 +33,18 @@ let submitBookBtn = document.querySelector("#submitBook");
 let newTitle = document.querySelector("#newTitle");
 let newAuthor = document.querySelector("#newAuthor");
 let newPages = document.querySelector("#newPages");
+let newReadTrue = document.querySelector("#readTrue");
+let newReadFalse = document.querySelector("#readFalse");
 newBookBtn.addEventListener('click', () => {
 	newBookForm.style.display = 'block';
 });
+let newRead;
 submitBookBtn.addEventListener('click', () => {
-	addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, true);
+	if (newReadTrue.checked)
+		newRead = true;
+	else
+		newRead = false;
+	addBookToLibrary(newTitle.value, newAuthor.value, newPages.value, newRead);
 	event.preventDefault();
 	newTitle.value = "";
 	newAuthor.value = "";
