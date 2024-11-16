@@ -12,6 +12,7 @@ function Book(title, author, pages, read) {
 	return this.info;
 }
 
+
 function addBookToLibrary(title, author, pages, read) {
 	book = new Book(title, author, pages, read);
 	myLibrary.push(book);
@@ -25,6 +26,9 @@ function addBookToLibrary(title, author, pages, read) {
 	const removeMe = document.createElement("button");
 	c0.appendChild(removeMe);
 	removeMe.innerText = "rm";
+	removeMe.addEventListener('click', () => {
+		removeBookFromLibrary(book, row);
+	});
 	c1.innerText = myLibrary[myLibrary.length - 1].title;
 	c2.innerText = myLibrary[myLibrary.length - 1].author;
 	c3.innerText = myLibrary[myLibrary.length - 1].pages;
@@ -42,6 +46,12 @@ let newReadFalse = document.querySelector("#readFalse");
 newBookBtn.addEventListener('click', () => {
 	newBookForm.style.display = 'block';
 });
+function removeBookFromLibrary(book, row)
+{
+	let index = myLibrary.indexOf(book);
+	myLibrary.splice(index, 1);
+	console.log(book.title);	
+}
 let newRead;
 submitBookBtn.addEventListener('click', () => {
 	if (newReadTrue.checked)
