@@ -26,9 +26,10 @@ function addBookToLibrary(title, author, pages, read) {
 	const removeMe = document.createElement("button");
 	c0.appendChild(removeMe);
 	removeMe.innerText = "rm";
-	removeMe.addEventListener('click', () => {
-		removeBookFromLibrary(book, row);
-	});
+	removeMe.addEventListener('click', (function(bookCopy){
+		return function() {
+		removeBookFromLibrary(bookCopy, row);}
+	})(book));
 	c1.innerText = myLibrary[myLibrary.length - 1].title;
 	c2.innerText = myLibrary[myLibrary.length - 1].author;
 	c3.innerText = myLibrary[myLibrary.length - 1].pages;
